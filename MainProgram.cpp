@@ -76,23 +76,21 @@ private:
     std::vector<T> items_;
 public:
     // TODO 4a: add an item to the back
-    void add(const T& item) { items_.append(item); }
+    void add(const T& item) { items_.push_back(item); }
 
     // TODO 4b: return number of stored items as int
-    int size() const { return items_.length(); }        // <-- replace
+    int size() const { return static_cast<int>(items_.size()); }        // <-- replace
 
     // TODO 4c: return the item at index; throw std::out_of_range if invalid
     T get(int index) const {
-        if( index > items_.length() ) throw std::out_of_range("invalid index");
+        if(index < 0 ||  index > size() ) throw std::out_of_range("invalid index");
         return items_[index]; // <-- replace
     }
 
     // TODO 4d: return the sum of all stored elements
     T total() const {
-        int sum = 0;
-        for(int i = 0;i < items_.length();i++){
-            sum += items_[i];
-        }
+        T sum = T();
+        for(const T& v :items_){ sum+=v;}
         return sum;
          // <-- replace
     }
@@ -133,7 +131,7 @@ public:
     // TODO 6c: set data_[index]; throw std::out_of_range if invalid
     void set(int index, const T& value) {
         // replace
-        if(data_.length < index) throw std::out_of_range("invalid index");
+        if(data_.size() < index) throw std::out_of_range("invalid index");
         data_[index] = value;
         
     }
@@ -141,7 +139,7 @@ public:
     // TODO 6d: return data_[index]; throw std::out_of_range if invalid
     T at(int index) const {
          // <-- replace
-          if(data_.length < index) throw std::out_of_range("invalid index");
+          if(data_.size() < index) throw std::out_of_range("invalid index");
           return data_[index];
     }
 };
