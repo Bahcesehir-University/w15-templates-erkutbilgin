@@ -131,7 +131,7 @@ public:
     // TODO 6c: set data_[index]; throw std::out_of_range if invalid
     void set(int index, const T& value) {
         // replace
-        if(N < index) throw std::out_of_range("invalid index");
+        if(index <0 || N < index) throw std::out_of_range("invalid index");
         data_[index] = value;
         
     }
@@ -139,7 +139,7 @@ public:
     // TODO 6d: return data_[index]; throw std::out_of_range if invalid
     T at(int index) const {
          // <-- replace
-          if(N < index) throw std::out_of_range("invalid index");
+          if(index < 0|| N < index) throw std::out_of_range("invalid index");
           return data_[index];
     }
 };
