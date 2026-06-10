@@ -120,7 +120,7 @@ private:
     T data_[N];
 public:
     // TODO 6a: default-construct all N elements to T()
-    FixedArray(): T() {
+    FixedArray(): data_{} {
         // replace
         
     }
