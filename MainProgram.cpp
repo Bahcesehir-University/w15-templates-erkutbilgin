@@ -120,8 +120,11 @@ private:
     T data_[N];
 public:
     // TODO 6a: default-construct all N elements to T()
-    FixedArray(): data_{} {
+    FixedArray(){
         // replace
+        for(int i =  0; i < N; i++){
+            data_[i] = T();
+        }
         
     }
 
