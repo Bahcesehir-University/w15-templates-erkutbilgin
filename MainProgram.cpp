@@ -120,7 +120,7 @@ private:
     T data_[N];
 public:
     // TODO 6a: default-construct all N elements to T()
-    FixedArray(): data_{} {
+    FixedArray(): T() {
         // replace
         
     }
@@ -131,7 +131,7 @@ public:
     // TODO 6c: set data_[index]; throw std::out_of_range if invalid
     void set(int index, const T& value) {
         // replace
-        if(data_.size() < index) throw std::out_of_range("invalid index");
+        if(N < index) throw std::out_of_range("invalid index");
         data_[index] = value;
         
     }
@@ -139,7 +139,7 @@ public:
     // TODO 6d: return data_[index]; throw std::out_of_range if invalid
     T at(int index) const {
          // <-- replace
-          if(data_.size() < index) throw std::out_of_range("invalid index");
+          if(N < index) throw std::out_of_range("invalid index");
           return data_[index];
     }
 };
